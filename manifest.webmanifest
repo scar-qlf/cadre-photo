@@ -1,0 +1,15 @@
+{
+  "id": "./",
+  "name": "Cadre — compagnon photo",
+  "short_name": "Cadre",
+  "description": "Un compagnon photo simple pour trouver le bon cadrage.",
+  "lang": "fr-FR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#111411",
+  "theme_color": "#111411",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

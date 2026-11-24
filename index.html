@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#111411" />
+    <meta name="description" content="Un compagnon photo simple pour trouver le bon cadrage." />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Cadre — compagnon photo</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="Cadre, accueil">
+          <span class="brand-mark" aria-hidden="true"><span></span></span>
+          <span>cadre<span class="brand-period">.</span></span>
+        </a>
+        <button class="help-button" id="help-button" type="button" aria-label="Comment installer l’application ?">
+          <span aria-hidden="true">?</span>
+        </button>
+      </header>
+
+      <section class="intro" id="top">
+        <p class="eyebrow">TON COMPAGNON PHOTO</p>
+        <h1>Trouve le bon<br /><em>cadre.</em></h1>
+        <p class="intro-copy">Prends un instant. On s’occupe de la composition.</p>
+      </section>
+
+      <section class="camera-card" aria-label="Aperçu photo">
+        <div class="camera-stage ratio-portrait" id="camera-stage">
+          <video id="camera" autoplay muted playsinline aria-label="Aperçu de la caméra"></video>
+          <div class="view-tint" id="view-tint"></div>
+          <svg class="guide-layer guide-thirds" id="guide-layer" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M33.33 0V100 M66.67 0V100 M0 33.33H100 M0 66.67H100" />
+          </svg>
+          <div class="camera-empty" id="camera-empty">
+            <span class="camera-glyph" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M8 15.5A3.5 3.5 0 0 1 11.5 12h5l3-4h9l3 4h5a3.5 3.5 0 0 1 3.5 3.5v21a3.5 3.5 0 0 1-3.5 3.5h-25A3.5 3.5 0 0 1 8 36.5v-21Z" stroke="currentColor" stroke-width="1.8"/><circle cx="24" cy="25" r="8" stroke="currentColor" stroke-width="1.8"/><circle cx="24" cy="25" r="3" fill="currentColor"/></svg>
+            </span>
+            <p class="empty-title" id="empty-title">Prête quand tu l’es</p>
+            <p class="empty-copy" id="empty-copy">Active la caméra pour voir ton cadrage.</p>
+            <button class="start-camera" id="start-camera" type="button">Activer la caméra <span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="stage-topline">
+            <span class="live-badge" id="live-badge"><i></i> EN DIRECT</span>
+            <span class="ratio-badge" id="ratio-badge">4:5</span>
+          </div>
+          <button class="flip-camera" id="flip-camera" type="button" aria-label="Changer de caméra" disabled>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 7h11l-2.5-2.5M17 17H6l2.5 2.5M18 7l2 2-2 2M6 17l-2-2 2-2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="camera-caption">
+          <span><span class="caption-dot"></span> Aperçu en direct</span>
+          <span id="camera-caption-right">Tes photos restent à toi</span>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Réglages de composition">
+        <div class="control-heading">
+          <span class="eyebrow">AIDES DE COMPOSITION</span>
+          <span class="control-hint">Choisis ton repère</span>
+        </div>
+        <div class="segmented guide-options" role="group" aria-label="Repère de composition">
+          <button class="segment is-selected" type="button" data-guide="thirds" aria-pressed="true">Grille</button>
+          <button class="segment" type="button" data-guide="center" aria-pressed="false">Centre</button>
+          <button class="segment" type="button" data-guide="golden" aria-pressed="false">Équilibre</button>
+        </div>
+
+        <div class="control-heading look-heading">
+          <span class="eyebrow">AMBIANCE</span>
+          <span class="control-hint">Tu pourras changer après</span>
+        </div>
+        <div class="look-options" role="group" aria-label="Rendu photo">
+          <button class="look-button is-selected" type="button" data-look="natural" aria-pressed="true"><span class="look-swatch swatch-natural"></span><span>Naturel</span></button>
+          <button class="look-button" type="button" data-look="warm" aria-pressed="false"><span class="look-swatch swatch-warm"></span><span>Pellicule</span></button>
+          <button class="look-button" type="button" data-look="mono" aria-pressed="false"><span class="look-swatch swatch-mono"></span><span>Monochrome</span></button>
+        </div>
+
+        <div class="shoot-row">
+          <label class="ratio-control" for="ratio-select">
+            <span class="ratio-icon" aria-hidden="true">▯</span>
+            <select id="ratio-select" aria-label="Format de la photo">
+              <option value="portrait">4:5</option>
+              <option value="square">1:1</option>
+              <option value="landscape">3:2</option>
+            </select>
+            <span class="select-chevron" aria-hidden="true">⌄</span>
+          </label>
+          <button class="shutter" id="shutter" type="button" aria-label="Prendre une photo" disabled>
+            <span class="shutter-inner"></span>
+          </button>
+          <span class="shoot-spacer" aria-hidden="true"></span>
+        </div>
+        <p class="privacy-note"><span aria-hidden="true">✳</span> Rien n’est envoyé : la photo reste sur ton iPhone.</p>
+      </section>
+
+      <footer class="footer-note">FAIS SIMPLE. REGARDE AUTOUR DE TOI.</footer>
+    </main>
+
+    <dialog class="modal" id="photo-modal" aria-labelledby="photo-title">
+      <div class="modal-card photo-modal-card">
+        <div class="modal-top"><span class="eyebrow">TON INSTANT</span><button class="modal-close" data-close="photo-modal" aria-label="Fermer">×</button></div>
+        <h2 id="photo-title">Elle est à toi.</h2>
+        <p class="modal-copy">Tu peux la garder ou refaire une prise.</p>
+        <img class="captured-photo" id="captured-photo" alt="Photo capturée" />
+        <div class="modal-actions">
+          <button class="secondary-button" id="retake-button" type="button">Refaire</button>
+          <button class="primary-button" id="save-button" type="button">Garder la photo <span aria-hidden="true">↗</span></button>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="modal" id="help-modal" aria-labelledby="help-title">
+      <div class="modal-card help-modal-card">
+        <div class="modal-top"><span class="eyebrow">INSTALLATION IPHONE</span><button class="modal-close" data-close="help-modal" aria-label="Fermer">×</button></div>
+        <h2 id="help-title">Garde Cadre<br /><em>à portée de main.</em></h2>
+        <ol class="install-steps">
+          <li><span>01</span><div>Ouvre cette page dans <strong>Safari</strong>.</div></li>
+          <li><span>02</span><div>Touche <strong>Partager</strong> en bas de l’écran.</div></li>
+          <li><span>03</span><div>Choisis <strong>Ajouter à l’écran d’accueil</strong>.</div></li>
+        </ol>
+        <p class="modal-footnote">Une fois publiée sur une adresse web, l’app s’ouvrira depuis son icône comme une petite appli.</p>
+      </div>
+    </dialog>
+
+    <canvas id="capture-canvas" hidden></canvas>
+    <script src="app.js" defer></script>
+  </body>
+</html>
