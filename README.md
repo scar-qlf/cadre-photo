@@ -1,22 +1,18 @@
 # Cadre — prototype photo installable
 
-Prototype web mobile inspiré des outils de composition photo. Il peut être développé sur Windows et ajouté à l’écran d’accueil de l’iPhone depuis Safari.
+Prototype web mobile à ouvrir dans Safari et à ajouter à l’écran d’accueil de l’iPhone.
 
-## Première version
+## Fonctions
 
-- Aperçu de la caméra avant ou arrière
+- Aperçu de la caméra avant ou arrière et prise de photo
 - Repères de composition : grille, centre et équilibre
 - Formats 4:5, 1:1 et 3:2
-- Trois rendus de départ : naturel, pellicule et monochrome
-- Capture et partage/enregistrement de la photo
-- Interface installable et cache hors ligne de la page
+- Rendus naturel, pellicule et monochrome
+- Détection d’objets, cadre de suivi et indications pour réorienter l’iPhone
+- Zoom automatique par l’objectif si le navigateur l’autorise, sinon par recadrage numérique
 
-Les photos sont traitées dans le navigateur et ne sont pas envoyées à un serveur par ce prototype.
+La détection des images se fait dans le navigateur. Le modèle de détection et les fichiers nécessaires sont téléchargés au premier usage ; les photos ne sont pas téléversées par l’application.
 
-## Prochaine étape
+## Installation sur iPhone
 
-Publier le contenu de ce dossier dans un dépôt GitHub public, puis activer GitHub Pages dans les réglages du dépôt en choisissant la branche `main` et le dossier `/ (root)`. GitHub fournira alors l’adresse web de la démo.
-
-Sur l’iPhone, ouvrir cette adresse dans Safari, autoriser la caméra, puis choisir **Partager → Ajouter à l’écran d’accueil**. L’accès caméra doit être essayé directement sur l’iPhone.
-
-Le prototype fournit des guides visuels. Il ne fait pas encore d’analyse automatique de la scène ni de suivi intelligent du sujet.
+Ouvre l’adresse du site dans Safari, autorise l’accès à la caméra, puis choisis **Partager → Ajouter à l’écran d’accueil**. Le site doit être publié sur une adresse sécurisée en HTTPS pour accéder à la caméra.

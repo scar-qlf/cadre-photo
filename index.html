@@ -36,6 +36,9 @@
           <svg class="guide-layer guide-thirds" id="guide-layer" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
             <path d="M33.33 0V100 M66.67 0V100 M0 33.33H100 M0 66.67H100" />
           </svg>
+          <div class="subject-overlay" id="subject-overlay" hidden aria-hidden="true">
+            <div class="subject-box" id="subject-box"><span class="subject-tag" id="subject-tag"></span></div>
+          </div>
           <div class="camera-empty" id="camera-empty">
             <span class="camera-glyph" aria-hidden="true">
               <svg viewBox="0 0 48 48" fill="none"><path d="M8 15.5A3.5 3.5 0 0 1 11.5 12h5l3-4h9l3 4h5a3.5 3.5 0 0 1 3.5 3.5v21a3.5 3.5 0 0 1-3.5 3.5h-25A3.5 3.5 0 0 1 8 36.5v-21Z" stroke="currentColor" stroke-width="1.8"/><circle cx="24" cy="25" r="8" stroke="currentColor" stroke-width="1.8"/><circle cx="24" cy="25" r="3" fill="currentColor"/></svg>
@@ -54,7 +57,12 @@
         </div>
         <div class="camera-caption">
           <span><span class="caption-dot"></span> Aperçu en direct</span>
-          <span id="camera-caption-right">Tes photos restent à toi</span>
+          <span id="camera-caption-right">Aucune photo n’est envoyée</span>
+        </div>
+        <div class="coach-card" id="coach-card" aria-live="polite">
+          <span class="coach-icon" id="coach-icon" aria-hidden="true">✳</span>
+          <div class="coach-text"><strong id="coach-title">Cadrage automatique</strong><p id="coach-copy">Active la caméra, puis touche ✳ pour trouver ton sujet.</p></div>
+          <span class="zoom-pill" id="zoom-pill" hidden>1×</span>
         </div>
       </section>
 
@@ -92,9 +100,9 @@
           <button class="shutter" id="shutter" type="button" aria-label="Prendre une photo" disabled>
             <span class="shutter-inner"></span>
           </button>
-          <span class="shoot-spacer" aria-hidden="true"></span>
+          <button class="assist-button" id="assist-button" type="button" aria-label="Activer le cadrage automatique" aria-pressed="false" disabled><span aria-hidden="true">✳</span></button>
         </div>
-        <p class="privacy-note"><span aria-hidden="true">✳</span> Rien n’est envoyé : la photo reste sur ton iPhone.</p>
+        <p class="privacy-note"><span aria-hidden="true">✳</span> L’analyse se fait sur l’iPhone ; les photos ne sont pas envoyées.</p>
       </section>
 
       <footer class="footer-note">FAIS SIMPLE. REGARDE AUTOUR DE TOI.</footer>
